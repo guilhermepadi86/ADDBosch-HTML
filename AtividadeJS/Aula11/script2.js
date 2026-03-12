@@ -20,7 +20,23 @@ class Automovel {
     }
 }
 
-const carro1 = new Automovel("Corsa", "Chevrolet", "2000", "Preto", "1.6")
-const carro2 = new Automovel("Vectra", "Chevrolet", "1999", "Branco", "2.0")
+class Carro extends Automovel{
+    abrirPortas() {
+        return "Abrindo as portas!"
+    }
+}
 
-console.log(carro2.acelerar())
+class Moto extends Automovel{
+    grau() {
+        return "Olha o grau"
+    }
+}
+
+const carro = new Carro("Corsa", "Chevrolet", "Preto", 2000, "1.0")
+const moto = new Moto("S1000RR", "BMW", "Azul", 2025, "1000cc")
+
+console.log(carro.abrirPortas())
+console.log(carro.acelerar())
+
+console.log(moto.acelerar())
+console.log(moto.grau())
