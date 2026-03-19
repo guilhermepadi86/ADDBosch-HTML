@@ -1,3 +1,5 @@
+let users = []
+
 class User {
     #id
     #name
@@ -16,6 +18,7 @@ class User {
         this.#email = email
         this.#password = password
         this.#active = true
+        users.push({id: id, name: name, email: email, password: password, active: true})
     }
 
     getId() {
@@ -83,8 +86,14 @@ class Client extends User{
 }
 
 class Admin extends User{
+    constructor(id, name, email, password) {
+        super(id, name, email, password)
+    }
 
+    showAllUsers() {
+        return users
+    }
 }
 
-const c1 = new Client(1, "Guilherme", "guipadi86@gmail.com", "1234567")
-console.log(c1.showData())
+const c1 = new Admin(1, "Guilherme", "guipadi86@gmail.com", "1234567")
+console.log(c1.showAllUsers())
