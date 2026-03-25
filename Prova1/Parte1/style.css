@@ -1,7 +1,7 @@
 .Header {
     display: flex;
     justify-content: center;
-    background-color:aquamarine;
+    background-color:rgb(29, 210, 255);
     padding: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 20px;
@@ -20,7 +20,7 @@
 .CardProdutos {
     width: 30%;
     height: 50%;
-    background-color: #6868ff;
+    background-color: #14c8ff;
     margin: 20px;
     border-radius: 25px;
 }
@@ -29,7 +29,7 @@
     display: flex;
     justify-content: center;
     padding: 10px;
-    background-color: #0e0ee2;
+    background-color: #6ce2ff;
     border-radius: 25px;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .CadastroProduto {
-    background-color: rgb(207, 205, 205);
+    background-color: rgb(87, 255, 227);
     display: flex;
     align-content: space-between;
     justify-content: space-around;
