@@ -7,28 +7,37 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <header class="Header">Painel de Análise de Produtos</header>
+    <div class="Tudo">
 
-    <div class="CadastroProduto">
-        <input type="text" id="NomeProduto" placeholder="Nome do Produto">
-        <input type="number" id="PrecoProduto" placeholder="Preço (R$)">
-        <input type="number" id="QuantidadeProduto" placeholder="Quantidade)">
-        <input type="button" id="ConfirmarCadastro" value="Adicionar Produto">
-    </div>
+        <div class="Linha">
+            <header class="Header">Painel de Análise de Produtos</header>
+        </div>
 
-    <div class="ContainerPrincipal" id="Principal">
-        <div class="CardProdutos" id="Caro">
-            <div class="CardInside">Produto Mais Caro</div>
-            <div class="Valor" id="ValorCaro"></div>
+        <div class="Linha">
+            <div class="CadastroProduto">
+                <input type="text" id="NomeProduto" placeholder="Nome do Produto">
+                <input type="number" id="PrecoProduto" placeholder="Preço (R$)">
+                <input type="number" id="QuantidadeProduto" placeholder="Quantidade)">
+                <input type="button" id="ConfirmarCadastro" value="Adicionar Produto">
+            </div>
         </div>
-        <div class="CardProdutos" id="Quantidade">
-            <div class="CardInside">Maior Quantidade</div>
-            <div class="Valor" id="ValorQuantidade">2</div>
+        <div class="Linha">
+            <div class="ContainerPrincipal" id="Principal">
+                <div class="CardProdutos" id="Caro">
+                    <div class="CardInside">Produto Mais Caro</div>
+                    <div class="Valor" id="ValorCaro"></div>
+                </div>
+                <div class="CardProdutos" id="Quantidade">
+                    <div class="CardInside">Maior Quantidade</div>
+                    <div class="Valor" id="ValorQuantidade">2</div>
+                </div>
+                <div class="CardProdutos" id="Estoque">
+                    <div class="CardInside">Valor Total em Estoque</div>
+                    <div class="Valor" id="ValorEstoque"></div>
+                </div>
+            </div>
         </div>
-        <div class="CardProdutos" id="Estoque">
-            <div class="CardInside">Valor Total em Estoque</div>
-            <div class="Valor" id="ValorEstoque"></div>
-        </div>
+
     </div>
     <script src="script.js"></script>
 </body>
