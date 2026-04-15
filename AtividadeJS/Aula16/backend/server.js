@@ -13,8 +13,17 @@ const connection = mysql.createConnection({
     user: "root",
     password: "root",
     host: "localhost",
-    database: "aula_add",
+    database: "aula_add2",
     port: 3307
+})
+
+app.get('/usuarios', (req, res) => {
+    connection.query("SELECT * FROM usuarios", (err, results) => {
+        if (err){
+            return
+        }
+        res.status(200).send({ usuarios: results})
+    })
 })
 
 app.get('/', (req, res) => {
