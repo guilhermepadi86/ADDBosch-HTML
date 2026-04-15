@@ -13,3 +13,5 @@ INSERT INTO usuarios VALUES
 (default, "Henrique", "henrique@gmail.com", "123456");
 
 SELECT * FROM usuarios;
+
+SELECT * FROM usuarios WHERE id = 1;

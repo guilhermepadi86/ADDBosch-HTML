@@ -22,9 +22,46 @@ app.get('/usuarios', (req, res) => {
         if (err){
             return
         }
-        res.status(200).send({ usuarios: results})
+        res.status(200).send(results)
     })
 })
+
+app.get('/usuarios/:id', (req, res) => {
+    const { id } = req.params
+    connection.query("SELECT * FROM usuarios WHERE id = ?",
+        [id],
+        (err, results) => {
+            if (err){
+                return
+            }
+            return res.status(200).send(results[0])
+    })
+})
+
+app.post('/registro', (req, res) => {
+    const { nome, email, senha } = req.body
+    connection.query("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)", [nome, email, senha])
+
+    return res.status(201).send({response: "Usuário Registrado com Sucesso"})
+})
+
+// Atividade
+app.get('/aprendiz', (req, res) => {
+    connection.query("SELECT * FROM Aprendiz", (err, results) => {
+        if (err){
+            return
+        }
+        res.status(200).send(results)
+    })
+})
+
+app.post('/registroAprendiz', (req, res) => {
+    const { nome, setor, idade } = req.body
+    connection.query("INSERT INTO Aprendiz (nome, setor, idade) VALUES (?, ?, ?)", [nome, setor, idade])
+
+    return res.status(201).send({response: "Usuário Registrado com Sucesso"})
+})
+// FIM
 
 app.get('/', (req, res) => {
     return res.send("Servidor funcionando corretamente!")
