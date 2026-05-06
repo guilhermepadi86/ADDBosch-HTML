@@ -1,22 +1,10 @@
-import express, { response, Router } from 'express'
+import express, { Router } from 'express'
+import { getPeople, createUser } from '../controllers/UserController.js'
 
 const router = express.Router();
-const users = ["Diego", "Erich", "Leticia", "Luan"]
 
 router  
-    .get('/users', (req, res) => {
-        res.send(users)
-    })
-    .post('/users', (req, res) => {
-        const { nome, sobrenome } = req.body
-        try{
-            users.push({nome, sobrenome})
-        return res.status(200).send({response: `Usuário ${nome} ${sobrenome} registrado com sucesso!`})
-        }
-        catch {
-            return res.status(500).send({response: "Ocorreu um erro"})
-        }
-        
-    })
+    .get('/users', getPeople)
+    .post('/register', createUser)
 
 export default router
