@@ -12,5 +12,5 @@ export const createUser = (req, res) => {
     }
     catch{
         return res.status(500).send({response: "Erro ao registrar"})
-    }
+    }   
 }
