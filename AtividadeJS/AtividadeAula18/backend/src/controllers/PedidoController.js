@@ -20,11 +20,16 @@ class Pedidos {
         }
 
         const valorTotal = pedido.itens.reduce((acc, p) => {
-            return acc + p.preco
+            return acc + (p.preco * p.quantidade)
         }, 0)
         
-        pedido.total = valorTotal
+        const total = valorTotal.toLocaleString('pt-BR', {
+            currency: 'BRL',
+            minimumFractionDigits: 2
+        })
         
+        pedido.total = total
+
         try{
             allPedidos.push(pedido)
             res.status(200).send({response: "Pedido Registrado"})
