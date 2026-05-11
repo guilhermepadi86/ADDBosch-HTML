@@ -18,6 +18,12 @@ class Pedidos {
         else{
             pedido.id = 0
         }
+
+        const valorTotal = pedido.itens.reduce((acc, p) => {
+            return acc + p.preco
+        }, 0)
+        
+        pedido.total = valorTotal
         
         try{
             allPedidos.push(pedido)
