@@ -4,10 +4,6 @@ import { connection } from "../database/db.js"
 export const criarPeca = (req, res) => {
     const { nome_peca, codigo_peca, fornecedor, quantidade, preco_unitario, estoque} = req.body
 
-    if (estoque < 0 ) {
-        return res.status(400).send({ response: "Valor inválido para estoque"})
-    }
-
     try {
         connection.query('INSERT INTO inventario (nome_peca, codigo_peca, fornecedor, quantidade, preco_unitario, estoque) VALUES (?,?,?,?,?,?)',
             [nome_peca, codigo_peca, fornecedor, quantidade, preco_unitario, estoque],
@@ -53,10 +49,6 @@ export const getPeca = (req, res) => {
 export const atualizarPeca = (req, res) => {
     const { id } = req.params
     const { nome_peca, codigo_peca, fornecedor, quantidade, preco_unitario, estoque} = req.body
-
-    if (estoque < 0 ) {
-        return res.status(400).send({ response: "Valor inválido para estoque"})
-    }
 
     try {
         connection.query('UPDATE inventario SET nome_peca=?, codigo_peca=?, fornecedor=?, quantidade=?, preco_unitario=?, estoque=? WHERE id=?',
