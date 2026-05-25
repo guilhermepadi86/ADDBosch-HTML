@@ -19,13 +19,35 @@ export const validatePeca = (req, res, next) => {
     const {verificiarNome} = connection.query('SELECT * FROM inventario WHERE nome_peca=? and fornecedor=?', [nome_peca, fornecedor])
     const {verificarCodigo} = connection.query('SELECT * FROM inventario WHERE codigo_peca=?', [codigo_peca])
 
-    if (!verificiarNome){
+    if (verificiarNome){
         return res.status(400).json({message: "Já existe uma peça com este nome deste fornecedor"})
     }
-    if (!verificarCodigo) {
+    if (verificarCodigo) {
         return res.status(400).json({message: "Já existe uma peça com este nome deste fornecedor"})
     }
         
 
     next();
 }
+
+export const validateGetPeca = (req, res, next) => {
+    const { id } = req.params
+
+    if (id == "" || Number.isNaN(Number(id))) {
+        return res.status(400).send({ response: "O ID deve ser númerico e válido"})
+    }
+
+    next()
+}
+
+export const validateUpdatePeca = (req, res, next) => {
+    const { id } = req.params
+    const { quantidade, estoque, preco_unitario } = req.body
+
+    if (quantidade  < 0 || estoque < 0 || preco_unitario < 0 || id == "" || Number.isNaN(Number(id))) {
+        return res.status(400).send({ response: "Valores inválidos, verifique antes de enviar novamente" })
+    }
+
+    next()
+}
+

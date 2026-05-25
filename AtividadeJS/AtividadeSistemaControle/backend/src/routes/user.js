@@ -1,13 +1,13 @@
 import express, { Router } from 'express'
 import { criarPeca, allPecas, getPeca, atualizarPeca, deletarPeca } from '../controllers/UserController.js';
-import { validatePeca } from '../middlewares/userMiddleware.js';
+import { validateGetPeca, validatePeca, validateUpdatePeca } from '../middlewares/userMiddleware.js';
 const router = express.Router();
 
 router  
     .get('/pecas', allPecas)
-    .get('/peca/:id', getPeca)
+    .get('/peca/:id',validateGetPeca , getPeca)
     .post('/create', validatePeca, criarPeca)
-    .put('/update/:id', atualizarPeca)
-    .delete('/delete/:id', deletarPeca)
+    .put('/update/:id',validateUpdatePeca , atualizarPeca)
+    .delete('/delete/:id',validateGetPeca , deletarPeca)
 
 export default router

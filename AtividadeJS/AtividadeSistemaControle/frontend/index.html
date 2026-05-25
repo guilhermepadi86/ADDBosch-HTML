@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Estoque</title>
+</head>
+<body>
+    <h1>Criar Peça</h1>
+    <form id="formulario">
+        <input type="text"  id="nome" placeholder="Nome">
+        <input type="text"  id="codigo" placeholder="Código">
+        <input type="text"  id="fornecedor" placeholder="Fornecedor">
+        <input type="text"  id="quantidade" placeholder="Quantidade">
+        <input type="text"  id="precoUnitario" placeholder="Preço Unitário">
+        <input type="text"  id="estoque" placeholder="Estoque">
+        <input type="submit" value="Enviar">
+    </form>
+
+    <h1>Atualizar Peça</h1>
+    <form id="formularioAtt">
+        <input type="text" id="idAtt" placeholder="Id da Peça">
+        <input type="text"  id="nomeAtt" placeholder="Nome">
+        <input type="text"  id="codigoAtt" placeholder="Código">
+        <input type="text"  id="fornecedorAtt" placeholder="Fornecedor">
+        <input type="text"  id="quantidadeAtt" placeholder="Quantidade">
+        <input type="text"  id="precoUnitarioAtt" placeholder="Preço Unitário">
+        <input type="text"  id="estoqueAtt" placeholder="Estoque">
+        <input type="submit" value="Enviar">
+    </form>
+
+    <h1>Deletar Peça</h1>
+    <form id="formularioDelete">
+        <input type="text" id="idDel" placeholder="Id da Peça">
+        <input type="submit" value="Enviar">
+    </form>
+
+    <h1></h1>
+
+    <table>
+        <thead>
+            <th>ID Peça</th>
+            <th>Nome Peça</th>
+            <th>Código Peça</th>
+            <th>Fornecedor</th>
+            <th>Quantidade</th>
+            <th>Preço Unitário</th>
+            <th>Estoque</th>
+        </thead>
+        <tbody id="table-data">
+
+        </tbody>
+    </table>
+
+    <script type="module" src="scripts/index.js"></script>
+</body>
+</html>
