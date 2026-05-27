@@ -30,3 +30,72 @@ export const createObject = (req, res) => {
         return res.status(500).send({ response: "Erro ao acessar banco"} )
     }
 }
+
+export const getDescription = (req, res) => {
+    const { id } = req.params
+
+    const description = connection.query('SELECT descricao FROM lost WHERE id = ?',
+        [id],
+        (err, results) => {
+            if (err) {
+                return res.status(500).send({ response: `Erro ao coletar descrição`})
+            }
+            else {
+                return res.status(200).send(results)
+            }
+        }
+    )
+}
+
+export const getLocal = (req, res) => {
+    const { id } = req.params
+
+    const local = connection.query('SELECT local FROM lost WHERE id = ?',
+        [id],
+        (err, results) => {
+            if (err) {
+                return res.status(500).send({ response: `Erro ao coletar local`})
+            }
+            else {
+                return res.status(200).send(results)
+            }
+        }
+    )
+}
+
+export const getData = (req, res) => {
+    const { id } = req.params
+
+    const data = connection.query('SELECT data FROM lost WHERE id = ?',
+        [id],
+        (err, results) => {
+            if (err) {
+                return res.status(500).send({ response: `Erro ao coletar data`})
+            }
+            else {
+                return res.status(200).send(results)
+            }
+        }
+    )
+}
+
+export const changeStatus = (req, res) => {
+    const { id } = req.params
+    const newStatus = 'Entregue'
+    try {
+        connection.query('UPDATE lost SET status=?',
+            [newStatus],
+            (err, results) => {
+                if (err) {
+                    return res.status(500).send({ response: "Erro ao atualizar o status de entrega" })
+                }
+                else {
+                    return res.status(200).send({ response: "Status atualizado"})
+                }
+            }
+        )
+    }
+    catch {
+        return res.status(500).send({ response: "Erro ao atualizar" })
+    }
+}

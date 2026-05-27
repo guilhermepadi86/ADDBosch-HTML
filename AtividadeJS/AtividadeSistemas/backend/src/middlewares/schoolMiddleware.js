@@ -23,3 +23,17 @@ export const validateObject = (req, res, next) => {
 
     next()
 }
+
+export const validateStatus = (req, res, next) => {
+    const { id } = req.params
+
+    const { status } = connection.query(`SELECT status FROM lost WHERE id=${id}`, ())
+    console.log(id)
+    console.log(status)
+
+    if (status == "Entregue") {
+        return res.status(400).send({ response: "Não é possível mudar status que já esta como entregue"})
+    }
+
+    next()
+}
