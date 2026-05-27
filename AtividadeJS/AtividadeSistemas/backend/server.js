@@ -1,10 +1,10 @@
 import express from 'express'
-import initRoutes from './src/routes/routes.js'
 import cors from 'cors'
+import initRoutes from './src/routes/routes.js'
 
-const app = express();
+const app = express()
 
-const port = 8080;
+const port = 8080
 
 app.use(cors({
     origin: '*'
@@ -13,7 +13,7 @@ app.use(cors({
 initRoutes(app)
 
 app.get('/', (req, res) => {
-    return res.send("A api esta rodando")
+    return res.send("A api esta funcionando!")
 })
 
 app.listen(port, () => {
